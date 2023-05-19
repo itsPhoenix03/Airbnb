@@ -5,7 +5,7 @@ import { Nunito } from "next/font/google";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Bookings.io",
+  title: "Airbnb",
   description: `Book your room's for dream holidays which are affordable and are greate as you choose your room's as you do for your dream destination`,
 };
 

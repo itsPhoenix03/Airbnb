@@ -9,7 +9,7 @@ const Logo = () => {
   return (
     <Image
       className="hidden object-contain md:block cursor-pointer"
-      alt="Bookings.io Logo"
+      alt="Airbnb Logo"
       width="100"
       height="100"
       src={"/images/logo.png"}
