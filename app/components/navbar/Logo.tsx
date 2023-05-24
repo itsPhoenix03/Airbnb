@@ -8,6 +8,7 @@ const Logo = () => {
 
   return (
     <Image
+      onClick={() => router.push("/")}
       className="hidden object-contain md:block cursor-pointer"
       alt="Airbnb Logo"
       width="100"
