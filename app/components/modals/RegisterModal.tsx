@@ -12,9 +12,11 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -83,6 +85,11 @@ const RegisterModal = () => {
     </div>
   );
 
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [registerModal, loginModal]);
+
   const FooterContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
@@ -104,10 +111,10 @@ const RegisterModal = () => {
         <div className="flex flex-row justify-center items-center gap-2">
           <span>Already have an account?</span>
           <span
-            onClick={registerModal.onClose}
+            onClick={toggle}
             className="text-netural-800 cursor-pointer hover:underline underline-offset-2"
           >
-            Then login now
+            Then login now!
           </span>
         </div>
       </div>

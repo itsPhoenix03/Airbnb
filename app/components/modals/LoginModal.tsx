@@ -12,10 +12,12 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
 import { useRouter } from "next/navigation";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const LoginModal = () => {
   const router = useRouter();
   const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -76,6 +78,11 @@ const LoginModal = () => {
     </div>
   );
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const FooterContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
@@ -95,12 +102,12 @@ const LoginModal = () => {
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="flex flex-row justify-center items-center gap-2">
-          <span>Didn't have an account still?</span>
+          <span>Didn't have an account?</span>
           <span
-            onClick={loginModal.onClose}
+            onClick={toggle}
             className="text-netural-800 cursor-pointer hover:underline underline-offset-2"
           >
-            Then signup now
+            Create on now!
           </span>
         </div>
       </div>
