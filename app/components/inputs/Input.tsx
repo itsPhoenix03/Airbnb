@@ -66,7 +66,7 @@ const Input: React.FC<InputProps> = ({
             top-5
             z-10
             origin-[0]
-            ${formatPrice ? "left-6" : "left-4"}
+            ${formatPrice ? "left-9" : "left-4"}
             peer-placeholder-shown:scale-100
             peer-placeholder-shown:-translate-y-0
             peer-focus:scale-75
