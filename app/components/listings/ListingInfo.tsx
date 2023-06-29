@@ -1,7 +1,15 @@
 "use client";
 
+import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
 import { IconType } from "react-icons";
+import Heading from "../Heading";
+import Avatar from "../Avatar";
+import ListingCategory from "./ListingCategory";
+import dynamic from "next/dynamic";
+
+//! Import the Map Module
+const Map = dynamic(() => import("../Map"), { ssr: false });
 
 interface ListingInfoParams {
   user: SafeUser;
@@ -10,6 +18,7 @@ interface ListingInfoParams {
   bathroomCount: number;
   locationValue: string;
   description: string;
+  title: string;
   category:
     | {
         icon: IconType;
@@ -26,9 +35,46 @@ const ListingInfo: React.FC<ListingInfoParams> = ({
   bathroomCount,
   locationValue,
   description,
+  title,
   category,
 }) => {
-  return <div></div>;
+  const { getByValue } = useCountries();
+  const coordinates = getByValue(locationValue)?.latlng;
+
+  return (
+    <div className="col-span-4 flex flex-col gap-6">
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-row items-center font-semibold text-sm gap-2">
+          <span>Hosted by {user?.name}</span>
+          <Avatar src={user?.image} />
+        </div>
+
+        <div className="flex flex-row items-center text-neutral-500 gap-4 font-light text-xs">
+          <span>{guestCount} guest's</span>
+          <span>{roomCount} room's</span>
+          <span>{bathroomCount} bathroom's</span>
+        </div>
+      </div>
+
+      <hr />
+
+      {category && (
+        <ListingCategory
+          icon={category.icon}
+          description={category.description}
+          label={category.label}
+        />
+      )}
+
+      <hr />
+
+      <p className="text-sm text-neutral-500 font-light">{description}</p>
+
+      <hr />
+
+      <Map center={coordinates} />
+    </div>
+  );
 };
 
 export default ListingInfo;
