@@ -44,6 +44,13 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
         disabledDates={disabledDates}
         onChange={(value) => onChangeDate(value)}
       />
+
+      <hr />
+
+      <div className="p-4 flex flex-row items-center justify-between font-semibold text-sm">
+        <span>Your stay will cost's</span>
+        <span>$ {totalPrice}</span>
+      </div>
     </div>
   );
 };

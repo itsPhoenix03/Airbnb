@@ -85,7 +85,16 @@ const ListingClient: React.FC<ListingClientProps> = ({
   }, [totalPrice, dateRange, listing?.id, currentUser, loginModal, router]);
 
   useEffect(() => {
+    console.log("date range: ", dateRange);
+    console.log(
+      "outside effect if date range is: ",
+      dateRange.startDate,
+      typeof dateRange.startDate,
+      dateRange.endDate,
+      typeof dateRange.endDate
+    );
     if (dateRange.startDate && dateRange.endDate) {
+      console.log("hit effect if block", dateRange);
       const dateCount = differenceInCalendarDays(
         dateRange.endDate,
         dateRange.startDate
