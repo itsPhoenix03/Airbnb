@@ -73,8 +73,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
           `Your Booking for this listing has been confirmed! Enjoy...`
         );
         setDateRange(intialDateRange);
-        //TODO: Redirect to Trips section
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Oops! Something went wrong...");
