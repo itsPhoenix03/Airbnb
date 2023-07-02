@@ -22,7 +22,7 @@ const Calendar: React.FC<CalendarProps> = ({
       //   rangeColors={["#262626"]}
       ranges={[value]}
       date={new Date()}
-      onChange={(item) => onChange(item.selection)}
+      onChange={onChange}
       direction="vertical"
       showDateDisplay={false}
       minDate={new Date()}

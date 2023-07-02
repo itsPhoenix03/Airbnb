@@ -13,6 +13,7 @@ import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 const intialDateRange = {
@@ -54,7 +55,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(intialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(intialDateRange);
 
   const onCreateReservation = useCallback(() => {
     if (!currentUser) return loginModal.onOpen();
@@ -85,14 +86,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
   }, [totalPrice, dateRange, listing?.id, currentUser, loginModal, router]);
 
   useEffect(() => {
-    console.log("date range: ", dateRange);
-    console.log(
-      "outside effect if date range is: ",
-      dateRange.startDate,
-      typeof dateRange.startDate,
-      dateRange.endDate,
-      typeof dateRange.endDate
-    );
     if (dateRange.startDate && dateRange.endDate) {
       console.log("hit effect if block", dateRange);
       const dateCount = differenceInCalendarDays(
