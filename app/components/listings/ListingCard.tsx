@@ -87,8 +87,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
         </span>
 
         <div className="flex flex-col items-start gap-1">
-          <span className="font-semibold">$ {price}</span>
-          {!reservation && <span className="font-light">night</span>}
+          <span className="font-semibold">
+            $ {price}
+            {!reservation && <span className="font-light"> night</span>}
+          </span>
 
           {onAction && actionLabel && (
             <Button

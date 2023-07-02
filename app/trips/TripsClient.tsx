@@ -44,7 +44,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
   return (
     <Container>
       <Heading
-        title="All Your Trips"
+        title={`All Your Trips, ${currentUser?.name}`}
         subtitle="Where you've been and where you going!"
       />
 
