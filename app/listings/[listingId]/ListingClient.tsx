@@ -85,7 +85,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
-      console.log("hit effect if block", dateRange);
       const dateCount = differenceInCalendarDays(
         dateRange.endDate,
         dateRange.startDate

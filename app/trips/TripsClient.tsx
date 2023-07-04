@@ -29,7 +29,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
         .delete(`/api/reservations/${id}`)
         .then(() => {
           toast.success("Your booking has been cancelled");
-          setDeletingId("");
+          router.refresh();
         })
         .catch((error) => {
           toast.error(error?.response?.data?.error);
