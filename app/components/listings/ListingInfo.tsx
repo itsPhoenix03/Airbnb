@@ -50,9 +50,9 @@ const ListingInfo: React.FC<ListingInfoParams> = ({
         </div>
 
         <div className="flex flex-row items-center text-neutral-500 gap-4 font-light text-xs">
-          <span>{guestCount} guest's</span>
-          <span>{roomCount} room's</span>
-          <span>{bathroomCount} bathroom's</span>
+          <span>{guestCount} guest&#39s</span>
+          <span>{roomCount} room&#39s</span>
+          <span>{bathroomCount} bathroom&#39s</span>
         </div>
       </div>
 
