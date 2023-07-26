@@ -115,7 +115,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
           <section className="overflow-y-scroll">
             <ListingHead
               title={listing?.title}
-              locationValue={listing?.loactionValue}
+              locationValue={listing?.locationValue}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
@@ -124,7 +124,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 roomCount={listing.roomCount}
                 guestCount={listing.guestCount}
                 bathroomCount={listing.bathroomCount}
-                locationValue={listing.loactionValue}
+                locationValue={listing.locationValue}
                 description={listing.description}
                 title={listing.title}
                 category={category}

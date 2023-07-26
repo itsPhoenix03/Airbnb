@@ -29,7 +29,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const onRent = useCallback(() => {
     if (!currentUser) return loginModal.onOpen();
 
-    // TODO open rent modal
     rentModal.onOpen();
   }, [currentUser, loginModal, rentModal]);
 
@@ -98,19 +97,31 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItems
-                  onClick={() => router.push("/trips")}
+                  onClick={() => {
+                    toggleOpen();
+                    router.push("/trips");
+                  }}
                   label="My Trips"
                 />
                 <MenuItems
-                  onClick={() => router.push("/reservations")}
+                  onClick={() => {
+                    toggleOpen();
+                    router.push("/reservations");
+                  }}
                   label="My Reservations"
                 />
                 <MenuItems
-                  onClick={() => router.push("/favourites")}
+                  onClick={() => {
+                    toggleOpen();
+                    router.push("/favourites");
+                  }}
                   label="My Favourites"
                 />
                 <MenuItems
-                  onClick={() => router.push("/properties")}
+                  onClick={() => {
+                    toggleOpen();
+                    router.push("/properties");
+                  }}
                   label="My Properties"
                 />
                 <MenuItems onClick={rentModal.onOpen} label="Airbnb My Home" />
