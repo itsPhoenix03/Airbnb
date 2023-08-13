@@ -33,9 +33,14 @@ const LoginModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
+    let safeData = {
+      ...data,
+      email: data.email.trim(),
+      password: data.password.trim(),
+    };
 
     signIn("credentials", {
-      ...data,
+      ...safeData,
       redirect: false,
     }).then((callback) => {
       setIsLoading(false);

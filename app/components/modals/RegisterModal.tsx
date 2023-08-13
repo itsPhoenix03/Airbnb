@@ -33,9 +33,14 @@ const RegisterModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
+    let safeData = {
+      ...data,
+      email: data.email.trim(),
+      password: data.password.trim(),
+    };
 
     axios
-      .post("/api/register", data)
+      .post("/api/register", safeData)
       .then(() => {
         toast.success("Welcome, to our Community");
         registerModal.onClose();
