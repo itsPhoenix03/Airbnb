@@ -104,7 +104,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   return (
     <Container>
       <div className="mx-w-screen-lg mx-auto">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ListingImage
             title={listing?.title}
             imageSrc={listing?.imageSrc}
